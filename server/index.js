@@ -8,7 +8,9 @@ import { AdminRouter } from './routes/auth.js'
 dotenv.config()
 
 const app = express()
-app.use(cors({
+
+//cors MUST be above all app.use
+app.use(cors({                       
   origin: ['http://localhost:5173'], // Frontend origin
   methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed methods
   credentials: true, // If using cookies or authorization headers

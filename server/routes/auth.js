@@ -9,7 +9,7 @@ const router = express.Router();
 
 router.post('/login',async (req,res) => { //req(request) is from the frontend, and res(response) is a response back to the frontend
     console.log("well hello")
-    console.log('Login request received:', req.body);
+    console.log('Login request received:', req.body);// this shows: Login request received: { username: 'admin', password: 'hello', role: 'admin' }
     const {username,password,role} = req.body;
     
 
