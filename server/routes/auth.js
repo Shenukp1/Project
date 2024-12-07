@@ -8,11 +8,13 @@ dotenv.config();
 const router = express.Router();
 
 router.post('/login',async (req,res) => { //req(request) is from the frontend, and res(response) is a response back to the frontend
+    console.log("well hello")
+    console.log('Login request received:', req.body);
     const {username,password,role} = req.body;
     
 
     if(role === 'admin'){           //logic for the admin
-        const admin = await Admin.findOne({ username: username })// finds admin in the database based on the username given
+        const admin = await Admin.findOne({username})// finds admin in the database based on the username given
 
         if(!admin){                 //when admin is not registered
             return res.json({message: "admin not registered"});

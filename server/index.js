@@ -5,20 +5,26 @@ import cookieParser from 'cookie-parser'
 import "./db.js"
 import { AdminRouter } from './routes/auth.js'
 
-
+dotenv.config()
 
 const app = express()
-app.use(express.json())// when we pass data, this will convert it to the json format
-
 app.use(cors({
-  origin: 'http://localhost:5173', // Frontend origin
+  origin: ['http://localhost:5173'], // Frontend origin
   methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed methods
   credentials: true, // If using cookies or authorization headers
 }));
+
+// Handle preflight requests
+app.options('*', cors());
+
+app.use(express.json())// when we pass data, this will convert it to the json format
 app.use(cookieParser())
-dotenv.config()
 app.use('/auth',AdminRouter)
 
-app.listen(3001, () => {
-    console.log(`Server is running on port ${process.env.PORT}`);
+
+
+const PORT = process.env.PORT || 3001; // Use environment variable or fallback to 3001
+
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
 });

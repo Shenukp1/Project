@@ -8,7 +8,10 @@ const Login = () => {
   const [role,setRole] = useState('customer');  // input credential will default login to customer and not admin
   
   const handleSubmit = () => {//logic to pass to the server side
-    axios.post('http://localhost:3001/auth/login', {username,password,role})
+    
+    axios.post('http://localhost:3001/auth/login', { username, password, role }, {
+      withCredentials: true,
+    })
     .then(res => console.log(res.data))
     .catch(err => console.log(err) )
   }
