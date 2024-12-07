@@ -12,7 +12,7 @@ async function AdminAccount(){
     try {
         const adminCount = await Admin.countDocuments() // counts the records inside the admin
         if(adminCount === 0){                     // generating a admin because we always need one admin
-            const hashPassword = await bcrypt.hash(process.env.AdminPassword,10) // 10 is the salt that is added to the password
+            const hashPassword = await bcrypt.hash('hello',10) // 10 is the salt that is added to the password
             const newAdmin = new Admin({
                 username: 'admin',
                 password: hashPassword
