@@ -9,7 +9,7 @@ const Navbar = () => {
     return (
       <nav className="navbar">
         <div className="navbar-left">
-          <span className="navbar-brand">Car Rental Company</span>
+          <Link to='/' className="navbar-brand">Car Rental Company</Link>
         </div>
         <div className="navbar-right">
             {/*

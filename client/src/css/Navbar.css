@@ -1,37 +1,42 @@
-/* Styling for the Navbar */
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 2rem;
-    background-color: #333;
-    color: #fff;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  }
-  
-  .navbar-left {
-    font-size: 1.5rem;
-    font-weight: bold;
-  }
-  
-  .navbar-brand {
-    color: #f4f4f4;
-    text-decoration: none;
-  }
-  
-  .navbar-right {
-    display: flex;
-    gap: 1.5rem;
-  }
-  
-  .navbar-link {
-    color: #f4f4f4;
-    text-decoration: none;
-    font-size: 1rem;
-    font-weight: 500;
-    transition: color 0.3s ease;
-  }
-  
-  .navbar-link:hover {
-    color: #ff9900;
-  }
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #333;
+  color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-left {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+/* Since the brand is now a Link, ensure it remains styled as a prominent element */
+.navbar-brand {
+  color: #f4f4f4;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.navbar-brand:hover {
+  color: #ff9900;
+}
+
+.navbar-right {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.navbar-link {
+  color: #f4f4f4;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.navbar-link:hover {
+  color: #ff9900;
+}
