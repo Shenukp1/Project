@@ -14,9 +14,13 @@ const Navbar = () => {
         <div className="navbar-right">
             {/*
                 Add pages you want to move to here on the navbar.
-                follow the same structure 
+                follow the same structure
+                1. addstudent -> reservation
             */}
+          <Link to="/dashboard" className="navbar-link">Dashboard</Link>
           <Link to="/vehicle" className="navbar-link">Vehicle</Link>
+          <Link to="/reservation" className="navbar-link">Reservation</Link>
+          <Link to="/checkout" className="navbar-link">Checkout</Link>
           <Link to="/login" className="navbar-link">Login</Link>
         </div>
       </nav>
