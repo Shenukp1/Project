@@ -1,18 +1,23 @@
 import React from 'react'
 import { useState } from 'react';
+import {useNavigate} from 'react-router-dom'
 import '../css/Login.css';
 import axios from 'axios'
 const Login = () => {
   const [username,setUsername] = useState('');
   const [password,setPassword] = useState('');
-  const [role,setRole] = useState('customer');  // input credential will default login to customer and not admin
-  
+  const [role,setRole] = useState('admin');  // input credential will default login to customer and not admin
+  const navigate = useNavigate();
+
   const handleSubmit = () => {//logic to pass to the server side
     
     axios.post('http://localhost:3001/auth/login', { username, password, role }, {
       withCredentials: true,
     })
-    .then(res => console.log(res.data))
+    .then(res => {if(res.data.login && res.data.role === 'admin'){
+      navigate('/dashboard')
+    }
+  })
     .catch(err => console.log(err) )
   }
 
