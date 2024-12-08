@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 
 const reservationSchema = new mongoose.Schema({
     
-    licenseNumber: { type: String, ref: 'customer', required: true },
+    licenseNumber: { type: String, ref: 'customer', required: true }, // the ref is how you connect it to another table
     licensePlateNumber: { type: String, ref: 'vehicle', required: true },
     pickupLocation: { type: String, required: true },
     dropoffLocation: { type: String, required: true },
