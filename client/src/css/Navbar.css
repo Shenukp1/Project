@@ -1,34 +1,38 @@
+/* General navbar styling */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  background-color: #333;
+  background-color: #333; /* Keeps the dark background */
   color: #fff;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
+/* Navbar left section */
 .navbar-left {
   font-size: 1.5rem;
   font-weight: bold;
 }
 
-/* Since the brand is now a Link, ensure it remains styled as a prominent element */
+/* Brand styling */
 .navbar-brand {
-  color: #f4f4f4;
+  color: #f4f4f4; /* Light color for contrast */
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 .navbar-brand:hover {
-  color: #ff9900;
+  color: #ff9900; /* Bright hover effect */
 }
 
+/* Navbar right section */
 .navbar-right {
   display: flex;
   gap: 1.5rem;
 }
 
+/* Navbar links */
 .navbar-link {
   color: #f4f4f4;
   text-decoration: none;
@@ -38,5 +42,34 @@
 }
 
 .navbar-link:hover {
-  color: #ff9900;
+  color: #ff9900; /* Same hover effect as the brand */
+}
+
+/* Role-specific highlighting */
+.navbar-link.admin {
+  font-weight: bold;
+  border-bottom: 2px solid #ff9900; /* Admin-specific indicator */
+}
+
+.navbar-link.customer {
+  font-weight: bold;
+  border-bottom: 2px solid #00ccff; /* Customer-specific indicator */
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navbar-right {
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  .navbar-link {
+    font-size: 0.9rem;
+  }
 }
