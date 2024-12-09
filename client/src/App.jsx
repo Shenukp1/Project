@@ -1,7 +1,7 @@
 import {BrowserRouter,Routes,Route} from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Home from './components/Home'
-import Vehicle from './components/Vehicle'
+import Vehicles from './components/Vehicles'
 import Login from './components/Login'
 import Dashboard from './components/Dashboard'
 
@@ -15,7 +15,7 @@ function App() {
      <Navbar></Navbar> 
     <Routes>
       <Route path='/' element={<Home/>}></Route>
-      <Route path='/vehicle' element={<Vehicle/>}></Route>
+      <Route path='/vehicles' element={<Vehicles/>}></Route>
       <Route path='/login' element={<Login/>}></Route>
       <Route path='/dashboard' element={<Dashboard/>}></Route>
     </Routes>
