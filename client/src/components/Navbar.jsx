@@ -12,7 +12,7 @@ const Navbar = () => {
     navbarLinks = (
       <>
         <Link to="/adminDashboard" className="navbar-link">Admin Dashboard</Link>
-        <Link to="/viewCustomer" className="navbar-link">View Customer</Link>
+        <Link to="/addVehicle" className="navbar-link">Add Vehicle</Link>
       </>
     );
   } else if (userRole === 'customer') {
@@ -23,9 +23,15 @@ const Navbar = () => {
       </>
     );
   } else {
+    {/*
+      This is the main page link
+      */}
     navbarLinks = (
       <>
-        <Link to="/viewVehicle" className="navbar-link">Vehicle</Link>
+      {/*
+        when you click on Vehicles, it should go to a page where you can only view Vehicles that are avaliable
+      */}
+        <Link to="/viewVehicle" className="navbar-link">Vehicles</Link>
         <Link to="/login" className="navbar-link">Login</Link>
       </>
     );

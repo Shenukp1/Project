@@ -4,6 +4,7 @@ import cors from 'cors'
 import cookieParser from 'cookie-parser'
 import "./db.js"
 import { AdminRouter } from './routes/auth.js'
+import { VehicleRouter } from './routes/vehicle.js'
 
 dotenv.config()
 
@@ -22,6 +23,7 @@ app.options('*', cors());
 app.use(express.json())// when we pass data, this will convert it to the json format
 app.use(cookieParser())
 app.use('/auth',AdminRouter)
+app.use('/vehicle',VehicleRouter)
 
 
 
