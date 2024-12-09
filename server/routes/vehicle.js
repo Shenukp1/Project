@@ -69,4 +69,37 @@ router.post('/addBranch',verifyAdmin,async (req,res) => {
       }
 })
 
+// to get the vehicles
+router.get('/vehicles', async (req,res) => {
+
+  try {
+    
+    // gets all vehicles from the database
+    const vehicles = await Vehicle.find();
+
+    // gets specifications and branches for all vehicles
+    const vehicleDetails = await Promise.all(
+      vehicles.map(async (vehicle) => {
+        const specification = await VehicleSpecification.findOne({
+          licensePlateNumber: vehicle.licensePlateNumber,
+        });
+        const branch = await VehicleAtBranch.findOne({
+          licensePlateNumber: vehicle.licensePlateNumber,
+        });
+
+        return {
+          vehicle,
+          specification: specification || null,
+          branch: branch || null,
+        };
+      })
+    );
+
+    return res.json(vehicleDetails)
+  } catch (err) {
+    return res.json({message: "could not get the vehicles"});
+  }
+
+})
+
 export {router as VehicleRouter}

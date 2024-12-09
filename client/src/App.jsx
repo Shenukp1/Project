@@ -8,6 +8,7 @@ import AdminDashboard from './components/AdminDashboard'
 import CustomerDashboard from './components/CustomerDashboard'
 import AddVehicle from './components/AddVehicle.jsx'
 import AddCustomer from './components/AddCustomer.jsx';
+import Logout from './components/Logout.jsx';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="/adminDashboard" element={<AdminDashboard />} />
           <Route path="/addVehicle" element={<AddVehicle/>} />
           <Route path="/addCustomer" element={<AddCustomer/>} />
+          <Route path="/logout" element={<Logout/>} />
         </Routes>
       </BrowserRouter>
     </UserProvider>

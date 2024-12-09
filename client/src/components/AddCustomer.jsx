@@ -2,6 +2,7 @@ import React from 'react'
 import { useState } from 'react';
 import axios from 'axios';
 import '../css/AddCustomer.css';
+import {useNavigate} from 'react-router-dom'
 const AddCustomer = () => {
 
   // Customer attributes
@@ -11,12 +12,17 @@ const AddCustomer = () => {
   const [InsuranceNumber,setInsuranceNumber] = useState('');
   const [age,setAge] = useState(null);
 
+  const navigate = useNavigate();
+
   const handleSubmit = (e) => {
     e.preventDefault();
     axios.post('http://localhost:3001/customer/register', { username, password, licenseNumber,InsuranceNumber, age}, {
       withCredentials: true,
     })
     .then(res => { 
+      if(res.data.registered){
+        navigate('/adminDashboard')
+      }
       console.log(res) 
     })
     .catch(err => console.log(err) )
