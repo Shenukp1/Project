@@ -7,8 +7,8 @@ const employeeSchema = new mongoose.Schema({
    salary:{type:Number},
    email:{type:String},
    address:{type:String, ref:'branch'},//foreign key
-   username: {type:String, required:true, unique:true},
-    password: {type:String, required:true}
+   username: {type:String, required:true},
+   password: {type:String, required:true}
 })
 
 const employeeModel = mongoose.model('employee', employeeSchema)

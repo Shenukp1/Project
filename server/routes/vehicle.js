@@ -2,9 +2,10 @@ import express from 'express'
 import { Vehicle } from '../models/Vehicle.js';
 import { VehicleSpecification } from '../models/Vehicle_Specification.js';
 import { VehicleAtBranch } from '../models/Vehicle_At_Branch.js';
+import { verifyAdmin } from './auth.js';
 const router = express.Router()
 
-router.post('/addVehicle',async (req,res) => { 
+router.post('/addVehicle',verifyAdmin,async (req,res) => { 
     console.log('Request body:', req.body); // check
    
     try {
@@ -31,7 +32,7 @@ router.post('/addVehicle',async (req,res) => {
       }
 })
 
-router.post('/addSpecification',async (req,res) => { 
+router.post('/addSpecification',verifyAdmin,async (req,res) => { 
     try {
         
         const { licensePlateNumber, make, model, year, fuelType, mileage } = req.body;
@@ -52,7 +53,7 @@ router.post('/addSpecification',async (req,res) => {
       }
 })
 
-router.post('/addBranch',async (req,res) => { 
+router.post('/addBranch',verifyAdmin,async (req,res) => { 
     try {
         const { address, licensePlateNumber } = req.body;
         const newBranch =  VehicleAtBranch({

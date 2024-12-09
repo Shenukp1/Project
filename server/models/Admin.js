@@ -1,9 +1,9 @@
 import mongoose from "mongoose";
 
 const adminSchema = new mongoose.Schema({
-    username: {type:String, required:true, unique:true},
+    username: {type:String, required:true},
     password: {type:String, required:true},
-    a_ID: {type:String, required:true},
+    a_ID: {type:String, required:true, unique: true},
     employeeID: {type:String, required:true, ref:'employee'}//foreign key
 })
 

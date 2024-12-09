@@ -15,7 +15,9 @@ async function AdminAccount(){
             const hashPassword = await bcrypt.hash('hello',10) // 10 is the salt that is added to the password
             const newAdmin = new Admin({
                 username: 'admin',
-                password: hashPassword
+                password: hashPassword,
+                a_ID: "1",
+                employeeID:"2"
             })
             await newAdmin.save()
             console.log('Account Created!')

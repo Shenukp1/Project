@@ -31,11 +31,33 @@ router.post('/login',async (req,res) => { //req(request) is from the frontend, a
         const token = jwt.sign({username: admin.username, role:'admin'},process.env.AdminKey)// if password was valid, we will generate a token
         res.cookie('token',token,{httpOnly:true, secure:true})                               // storing token inside cookie - httpOnly:true means that you cannot access cookie through only javascript
         return res.json({login:true, role:'admin'});
-    } else if(role === 'student') { 
-        return res.json({ message: "Student logic not implemented yet" });
+    } else if(role === 'customer') { 
+        return res.json({ message: "customer logic not implemented yet" });
+    }else if(role === 'employee') {
+        return res.json({ message: "customer logic not implemented yet" });
     } else {                        // role is not a valid role 
         return res.json({ message: "Invalid role" });
     }
 })
 
-export {router as AdminRouter}
+//this is to verify the admin, so that not everyone can "addVehicle"
+const verifyAdmin = (req,res,next) => {
+    const token = req.cookies.token; 
+    if(!token){
+        res.json({message: "Invalid Admin"})
+    } else {
+        jwt.verify(token,process.env.AdminKey, (err,decode)=>{
+            if(err){ // if token was not valid 
+                res.json({message: "Invalid token"})
+            } else {
+                req.username = decode.username;
+                req.role = decode.role;
+                next() // goes back to where it was
+            }
+        })
+    }
+}
+
+
+
+export {router as AdminRouter, verifyAdmin}

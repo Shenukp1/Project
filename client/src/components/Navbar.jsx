@@ -31,7 +31,7 @@ const Navbar = () => {
       {/*
         when you click on Vehicles, it should go to a page where you can only view Vehicles that are avaliable
       */}
-        <Link to="/viewVehicle" className="navbar-link">Vehicles</Link>
+        <Link to="/vehicle" className="navbar-link">Vehicles</Link>
         <Link to="/login" className="navbar-link">Login</Link>
       </>
     );
