@@ -5,6 +5,8 @@ import cookieParser from 'cookie-parser'
 import "./db.js"
 import { AdminRouter } from './routes/auth.js'
 import { VehicleRouter } from './routes/vehicle.js'
+import { customerRouter } from './routes/customer.js'
+
 
 dotenv.config()
 
@@ -24,6 +26,7 @@ app.use(express.json())// when we pass data, this will convert it to the json fo
 app.use(cookieParser())
 app.use('/auth',AdminRouter)
 app.use('/vehicle',VehicleRouter)
+app.use('/customer',customerRouter)
 
 
 

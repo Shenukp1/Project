@@ -13,6 +13,7 @@ const Navbar = () => {
       <>
         <Link to="/adminDashboard" className="navbar-link">Admin Dashboard</Link>
         <Link to="/addVehicle" className="navbar-link">Add Vehicle</Link>
+        <Link to="/addCustomer" className="navbar-link">Add Customer</Link>
       </>
     );
   } else if (userRole === 'customer') {

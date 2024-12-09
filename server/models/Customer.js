@@ -6,8 +6,6 @@ const customerSchema = new mongoose.Schema({
     licenseNumber: { type: String, required: true, unique: true },//primary key
     InsuranceNumber: { type: String, required:true},
     age: { type: Number },
-    name:{type:String},
-    timeFrame:{type:String}
 })
 
 const customerModel = mongoose.model('customer', customerSchema)

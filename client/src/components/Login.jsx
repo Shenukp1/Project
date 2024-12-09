@@ -25,7 +25,7 @@ const Login = () => {
         navigate('/customerDashboard');
       }
     } 
-  })
+    })
     .catch(err => console.log(err) )
   }
 

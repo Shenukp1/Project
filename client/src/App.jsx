@@ -7,6 +7,7 @@ import Login from './components/Login'
 import AdminDashboard from './components/AdminDashboard'
 import CustomerDashboard from './components/CustomerDashboard'
 import AddVehicle from './components/AddVehicle.jsx'
+import AddCustomer from './components/AddCustomer.jsx';
 
 function App() {
   return (
@@ -20,7 +21,7 @@ function App() {
           <Route path="/customerDashboard" element={<CustomerDashboard />} />
           <Route path="/adminDashboard" element={<AdminDashboard />} />
           <Route path="/addVehicle" element={<AddVehicle/>} />
-          
+          <Route path="/addCustomer" element={<AddCustomer/>} />
         </Routes>
       </BrowserRouter>
     </UserProvider>
