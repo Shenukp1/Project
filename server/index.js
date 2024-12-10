@@ -6,6 +6,7 @@ import "./db.js"
 import { AdminRouter } from './routes/auth.js'
 import { VehicleRouter } from './routes/vehicle.js'
 import { customerRouter } from './routes/customer.js'
+import { ReservationRouter } from './routes/reservation.js'
 
 
 dotenv.config()
@@ -27,6 +28,9 @@ app.use(cookieParser())
 app.use('/auth',AdminRouter)
 app.use('/vehicle',VehicleRouter)
 app.use('/customer',customerRouter)
+app.use('/reservation',ReservationRouter)
+
+
 
 
 

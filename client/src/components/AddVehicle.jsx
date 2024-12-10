@@ -77,16 +77,7 @@ const AddVehicle = () => {
         
           navigate('/vehicle')
 
-          // setLicensePlateNumber('');
-          // setAvailability(true);
-          // setNumOfVehicles(1);
-          // setVehicleLicenceClass('');
-          // setMake('');
-          // setModel('');
-          // setYear('');
-          // setFuelType('');
-          // setMileage('');
-          // setAddress('');
+          
         }
       })
       .catch((err) => {

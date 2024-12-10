@@ -220,8 +220,21 @@ router.put('/vehicle/:id', async (req, res) => {
 });
 
 
+//============================== DELETE ==============================
+
+router.delete('/vehicle/:id',async (req,res) => {
+  try {
+    const id = req.params.id
+
+    const vehicle = await Vehicle.findByIdAndDelete({_id: id});
+    return res.json({deleted:true, vehicle})
+    
+  } catch (err) {
+    console.log('Did not delete: '+err)
+  }
 
 
 
+})
 
 export {router as VehicleRouter}
