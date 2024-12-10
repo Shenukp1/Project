@@ -39,7 +39,7 @@ const VehicleCard = ({entry, index}) => {
 
             <div className="vehicle-action">
                 <button><Link to={`/vehicle/${vehicle._id}`}>Edit</Link></button>
-                <button>Delete</button>
+                <button><Link to={`/delete/${vehicle._id}`}>Delete</Link></button>
             </div>
         
         </div>

@@ -26,6 +26,7 @@ function App() {
           <Route path="/addCustomer" element={<AddCustomer/>} />
           <Route path="/logout" element={<Logout/>} />
           <Route path="/vehicle/:id" element={<VehicleEdit/>} />
+          <Route path="/delete/:id" element={<VehicleEdit/>} />
         </Routes>
       </BrowserRouter>
     </UserProvider>
