@@ -64,67 +64,35 @@ const VehicleEdit = () => {
     
 
     const handleSubmit = (e) => {
+
         e.preventDefault();
-    
+
         const vehicleData = {
-        licensePlateNumber,
-        availability,
-        numOfVehicles,
-        vehicleLicenceClass,
+            licensePlateNumber,
+            availability,
+            numOfVehicles,
+            vehicleLicenceClass,
+            make,
+            model,
+            year,
+            fuelType,
+            mileage,
+            address
         };
+
+
         console.log('Payload:', vehicleData);
-        axios
-        .put(`http://localhost:3001/vehicle/vehicle/${id}`, vehicleData)
-        .then((response) => { 
-            console.log('Response data:', response.data);
-            console.log('Response created:', response.data.createdVehicle);
-            if (response.data.createdVehicle) {
-            console.log('Vehicle added successfully:', response.data);
-    
-            // adding the specification
-            const specData = {
-                licensePlateNumber,
-                make,
-                model,
-                year,
-                fuelType,
-                mileage,
-            };
-            
 
-            return axios.post('http://localhost:3001/vehicle/addSpecification', specData);
-            }
-        })
-        .then((response) => {
-            if (response.data.createdSpecification) {
-            console.log('Specification added successfully:', response.data);
-    
-            // Proceed with adding the branch
-            const branchData = {
-                address,
-                licensePlateNumber,
-            };
-    
-            return axios.post('http://localhost:3001/vehicle/addBranch', branchData);
-            }
-        })
-        .then((response) => {
-            if (response.data.updated) {
-            console.log('Branch added successfully:', response.data);
-            alert('Vehicle, Specification, and Branch added successfully!');
 
-            navigate('/vehicle')
-            // setLicensePlateNumber('');
-            // setAvailability(true);
-            // setNumOfVehicles(1);
-            // setVehicleLicenceClass('');
-            // setMake('');
-            // setModel('');
-            // setYear('');
-            // setFuelType('');
-            // setMileage('');
-            // setAddress('');
+        axios.put(`http://localhost:3001/vehicle/vehicle/${id}`, vehicleData)
+        .then((response) => {
+            if(response.data.updated){
+                navigate('/vehicle')
+            }else{
+                console.log(res)
             }
+
+           
         })
         .catch((err) => {
             alert('An error occurred while processing your request.');

@@ -6,6 +6,10 @@ import { verifyAdmin } from './auth.js';
 
 const router = express.Router()
 
+
+//============================== POST ==============================
+
+
 router.post('/addVehicle',verifyAdmin,async (req,res) => { 
     console.log('Request body:', req.body); // check
    
@@ -70,6 +74,9 @@ router.post('/addBranch',verifyAdmin,async (req,res) => {
       }
 })
 
+//============================== GET ==============================
+
+
 // to get the vehicles
 router.get('/vehicles', async (req,res) => {
 
@@ -102,6 +109,7 @@ router.get('/vehicles', async (req,res) => {
   }
 
 })
+
 
 router.get('/vehicle/:id', async (req,res) => {
   try {
@@ -141,30 +149,61 @@ router.get('/vehicle/:id', async (req,res) => {
   }
 })
 
-router.put('/vehicle/:id', async (req,res) => {
+
+//============================== PUT ==============================
+
+
+router.put('/vehicle/:id', async (req, res) => {
   try {
     const id = req.params.id;
     console.log("Request ID:", req.params);
     console.log("Received ID:", id); // Debug the received ID
 
-    // gets all vehicles from the database
-    const vehicle = await Vehicle.findByIdAndUpdate(id,req.body);
+    // Update Vehicle
+    const vehicleData = {
+      licensePlateNumber: req.body.licensePlateNumber,
+      availability: req.body.availability,
+      numOfVehicles: req.body.numOfVehicles,
+      vehicleLicenceClass: req.body.vehicleLicenceClass,
+    };
 
-    console.log("Fetched Vehicle:", vehicle); // Debug the fetched vehicle
+    const vehicle = await Vehicle.findByIdAndUpdate(id, vehicleData, { new: true });
 
+    console.log("Updated Vehicle:", vehicle); // Debug the updated vehicle
 
     if (!vehicle) {
       return res.status(404).json({ message: 'Vehicle not found' });
     }
 
-    // gets specifications and branches for all vehicles
-    // Fetch the related specification and branch
-    const specification = await VehicleSpecification.findOne({
-      licensePlateNumber: vehicle.licensePlateNumber,
-    });
-    const branch = await VehicleAtBranch.findOne({
-      licensePlateNumber: vehicle.licensePlateNumber,
-    });
+    // Update Specification
+    const specData = {
+      make: req.body.make,
+      model: req.body.model,
+      year: req.body.year,
+      fuelType: req.body.fuelType,
+      mileage: req.body.mileage,
+    };
+
+    const specification = await VehicleSpecification.findOneAndUpdate(
+      { licensePlateNumber: vehicle.licensePlateNumber },
+      specData,
+      { new: true }
+    );
+
+    console.log("Updated Specification:", specification); // Debug the updated specification
+
+    // Update Branch
+    const branchData = {
+      address: req.body.address,
+    };
+
+    const branch = await VehicleAtBranch.findOneAndUpdate(
+      { licensePlateNumber: vehicle.licensePlateNumber },
+      branchData,
+      { new: true }
+    );
+
+    console.log("Updated Branch:", branch); // Debug the updated branch
 
     // Build the response
     const vehicleDetail = {
@@ -173,10 +212,16 @@ router.put('/vehicle/:id', async (req,res) => {
       branch: branch || null,
     };
 
-    return res.json({updated: true,vehicleDetail})
+    return res.json({ updated: true, vehicleDetail });
   } catch (err) {
-    return res.json({message: "could not get the vehicles"});
+    console.error('Error updating vehicle:', err);
+    return res.status(500).json({ message: "Could not update the vehicle.", error: err.message });
   }
-})
+});
+
+
+
+
+
 
 export {router as VehicleRouter}
