@@ -1,4 +1,7 @@
 # React + Vite
+youtube video used for most of the code: https://youtu.be/4sKkQ1WLHjQ?si=K3f6lreIIF4AvLC7&t=3774
+
+
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
