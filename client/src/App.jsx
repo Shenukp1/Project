@@ -12,6 +12,7 @@ import Logout from './components/Logout.jsx';
 import VehicleEdit from './components/VehicleEdit.jsx';
 import VehicleDelete from './components/VehicleDelete.jsx';
 import AddReservation from './components/AddReservation.jsx';
+import Reservation from './components/Reservation.jsx';
 
 function App() {
   return (
@@ -29,7 +30,8 @@ function App() {
           <Route path="/logout" element={<Logout/>} />
           <Route path="/vehicle/:id" element={<VehicleEdit/>} />
           <Route path="/delete/:id" element={<VehicleDelete/>} />
-          <Route path="/reservation" element={<AddReservation/>} />
+          <Route path="/addReservation" element={<AddReservation/>} />
+          <Route path="/reservation" element={<Reservation/>} />
         </Routes>
       </BrowserRouter>
     </UserProvider>

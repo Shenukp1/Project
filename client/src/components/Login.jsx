@@ -9,6 +9,7 @@ const Login = () => {
   const [password,setPassword] = useState('');
   const [role,setRole] = useState('admin');  // input credential will default login to customer and not admin
   const { setUserRole } = useContext(UserContext);
+  const {setUsernamel} = useContext(UserContext);
   const navigate = useNavigate();
 
   const handleSubmit = () => {//logic to pass to the server side
@@ -18,6 +19,8 @@ const Login = () => {
     })
     .then(res => {if(res.data.login){
       setUserRole(res.data.role); // Update global user role
+      console.log("Customer Name: "+res.data.customer.username)
+      setUsernamel(res.data.customer.username)
 
       if (res.data.role === 'admin') {
         navigate('/adminDashboard');

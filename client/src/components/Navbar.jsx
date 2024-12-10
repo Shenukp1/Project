@@ -23,7 +23,8 @@ const Navbar = () => {
       <>
         <Link to="/customerDashboard" className="navbar-link">Customer Dashboard</Link>
         <Link to="/vehicle" className="navbar-link">View Vehicle</Link>
-        <Link to="/reservation" className="navbar-link">Add Reservation</Link>
+        <Link to="/addReservation" className="navbar-link">Add Reservation</Link>
+        <Link to="/reservation" className="navbar-link">View Reservation</Link>
         <Link to="/logout" className="navbar-link">Logout</Link>
       </>
     );

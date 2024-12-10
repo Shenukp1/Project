@@ -47,7 +47,7 @@ router.post('/login',async (req,res) => { //req(request) is from the frontend, a
             
             const token = jwt.sign({username: customer.username, role:'customer'},process.env.CustomerKey)// if password was valid, we will generate a token
             res.cookie('token',token,{httpOnly:true, secure:true})                               // storing token inside cookie - httpOnly:true means that you cannot access cookie through only javascript
-            return res.json({login:true, role:'customer'});
+            return res.json({login:true, role:'customer',customer});
         }else if(role === 'employee') {
             return res.json({ message: "customer logic not implemented yet" });
         } else {                        // role is not a valid role 
