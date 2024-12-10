@@ -1,0 +1,112 @@
+/* VehicleEdit.css */
+
+.add-vehicle-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #f9f9f9;
+}
+
+.add-vehicle-container {
+    background: #fff;
+    border-radius: 8px;
+    padding: 2.5rem;
+    width: 500px;
+    max-width: 90%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.add-vehicle-container h2 {
+    margin-bottom: 2rem;
+    font-size: 1.75rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.add-vehicle-container h3 {
+    text-align: left;
+    margin: 1.5rem 0 1rem 0;
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #555;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 0.5rem;
+}
+
+.form-group {
+    margin-bottom: 1.25rem;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.form-group input,
+.form-group select {
+    display: block;
+    width: 100%;
+    padding: 0.6rem 0.8rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #007BFF;
+    outline: none;
+}
+
+.message {
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+    color: #007BFF;
+}
+
+.btn-submit {
+    margin-top: 1.75rem;
+    width: 100%;
+    padding: 0.8rem;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #fff;
+    background: #333;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-submit:hover {
+    background: #555;
+    transform: translateY(-2px);
+}
+
+.btn-submit:active {
+    background: #444;
+    transform: translateY(0);
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .add-vehicle-container {
+        padding: 1.5rem;
+        width: 100%;
+    }
+
+    .add-vehicle-container h2 {
+        font-size: 1.5rem;
+    }
+
+    .add-vehicle-container h3 {
+        font-size: 1.1rem;
+    }
+}

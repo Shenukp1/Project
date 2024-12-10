@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState, useContext, useEffect } from 'react';
-import '../css/AddVehicle.css';
+import '../css/VehicleEdit.css';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import {useNavigate} from 'react-router-dom'
