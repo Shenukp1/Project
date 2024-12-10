@@ -9,6 +9,7 @@ import CustomerDashboard from './components/CustomerDashboard'
 import AddVehicle from './components/AddVehicle.jsx'
 import AddCustomer from './components/AddCustomer.jsx';
 import Logout from './components/Logout.jsx';
+import VehicleEdit from './components/VehicleEdit.jsx';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path="/addVehicle" element={<AddVehicle/>} />
           <Route path="/addCustomer" element={<AddCustomer/>} />
           <Route path="/logout" element={<Logout/>} />
+          <Route path="/vehicle/:id" element={<VehicleEdit/>} />
         </Routes>
       </BrowserRouter>
     </UserProvider>

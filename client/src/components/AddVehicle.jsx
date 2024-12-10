@@ -28,16 +28,18 @@ const AddVehicle = () => {
       numOfVehicles,
       vehicleLicenceClass,
     };
+
     console.log('Payload:', vehicleData);
+
     axios
       .post('http://localhost:3001/vehicle/addVehicle', vehicleData)
-      .then((response) => { // Correctly declare 'response'
+      .then((response) => {
         console.log('Response data:', response.data);
         console.log('Response created:', response.data.createdVehicle);
         if (response.data.createdVehicle) {
           console.log('Vehicle added successfully:', response.data);
   
-          // Proceed with adding the specification
+          // adding the specification
           const specData = {
             licensePlateNumber,
             make,
@@ -55,7 +57,7 @@ const AddVehicle = () => {
         if (response.data.createdSpecification) {
           console.log('Specification added successfully:', response.data);
   
-          // Proceed with adding the branch
+          // adding the branch
           const branchData = {
             address,
             licensePlateNumber,

@@ -1,56 +1,16 @@
 .vehicle-list-page {
+  font-family: Arial, sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 2rem;
   background: #f9f9f9;
-  font-family: Arial, sans-serif;
   color: #333;
 }
 
 .vehicle-list-page h1 {
-  margin-bottom: 2rem;
   font-size: 2rem;
   font-weight: bold;
+  margin-bottom: 2rem;
   color: #333;
-}
-
-.vehicle-card {
-  background: #fff;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  width: 80%;
-  max-width: 800px;
-  margin-bottom: 1.5rem;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  padding: 1.5rem;
-}
-
-.vehicle-card h2 {
-  font-size: 1.5rem;
-  color: #555;
-  margin-bottom: 1rem;
-  border-bottom: 1px solid #ddd;
-  padding-bottom: 0.5rem;
-}
-
-.vehicle-section {
-  margin-top: 1rem;
-}
-
-.vehicle-section h3 {
-  font-size: 1.2rem;
-  color: #333;
-  margin-bottom: 0.5rem;
-  border-bottom: 1px solid #ddd;
-  padding-bottom: 0.3rem;
-}
-
-.vehicle-section p {
-  margin: 0.5rem 0;
-  line-height: 1.6;
-}
-
-.vehicle-section p strong {
-  color: #555;
 }
