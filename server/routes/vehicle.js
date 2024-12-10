@@ -112,7 +112,7 @@ router.get('/vehicle/:id', async (req,res) => {
     // gets all vehicles from the database
     const vehicle = await Vehicle.findById(id);
 
-    console.log("Fetched Vehicle:", vehicle); // Debug the fetched vehicle
+    //console.log("Fetched Vehicle:", vehicle); // Debug the fetched vehicle
 
 
     if (!vehicle) {
@@ -136,6 +136,44 @@ router.get('/vehicle/:id', async (req,res) => {
     };
 
     return res.json(vehicleDetail)
+  } catch (err) {
+    return res.json({message: "could not get the vehicles"});
+  }
+})
+
+router.put('/vehicle/:id', async (req,res) => {
+  try {
+    const id = req.params.id;
+    console.log("Request ID:", req.params);
+    console.log("Received ID:", id); // Debug the received ID
+
+    // gets all vehicles from the database
+    const vehicle = await Vehicle.findByIdAndUpdate(id,req.body);
+
+    console.log("Fetched Vehicle:", vehicle); // Debug the fetched vehicle
+
+
+    if (!vehicle) {
+      return res.status(404).json({ message: 'Vehicle not found' });
+    }
+
+    // gets specifications and branches for all vehicles
+    // Fetch the related specification and branch
+    const specification = await VehicleSpecification.findOne({
+      licensePlateNumber: vehicle.licensePlateNumber,
+    });
+    const branch = await VehicleAtBranch.findOne({
+      licensePlateNumber: vehicle.licensePlateNumber,
+    });
+
+    // Build the response
+    const vehicleDetail = {
+      vehicle,
+      specification: specification || null,
+      branch: branch || null,
+    };
+
+    return res.json({updated: true,vehicleDetail})
   } catch (err) {
     return res.json({message: "could not get the vehicles"});
   }

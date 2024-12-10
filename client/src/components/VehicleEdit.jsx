@@ -3,6 +3,7 @@ import { useState, useContext, useEffect } from 'react';
 import '../css/AddVehicle.css';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
+import {useNavigate} from 'react-router-dom'
 const VehicleEdit = () => {
   // Vehicle
     const [licensePlateNumber, setLicensePlateNumber] = useState('');
@@ -21,7 +22,7 @@ const VehicleEdit = () => {
     const [address, setAddress] = useState('');
 
     const {id} = useParams();
-
+    const navigate = useNavigate();
     useEffect(() => {
         console.log("Frontend ID from useParams:", id);
         axios.get(`http://localhost:3001/vehicle/vehicle/${id}`)
@@ -73,7 +74,7 @@ const VehicleEdit = () => {
         };
         console.log('Payload:', vehicleData);
         axios
-        .post('http://localhost:3001/vehicle/addVehicle', vehicleData)
+        .put(`http://localhost:3001/vehicle/vehicle/${id}`, vehicleData)
         .then((response) => { 
             console.log('Response data:', response.data);
             console.log('Response created:', response.data.createdVehicle);
@@ -108,9 +109,11 @@ const VehicleEdit = () => {
             }
         })
         .then((response) => {
-            if (response.data.createdBranch) {
+            if (response.data.updated) {
             console.log('Branch added successfully:', response.data);
             alert('Vehicle, Specification, and Branch added successfully!');
+
+            navigate('/vehicle')
             // setLicensePlateNumber('');
             // setAvailability(true);
             // setNumOfVehicles(1);
@@ -124,7 +127,6 @@ const VehicleEdit = () => {
             }
         })
         .catch((err) => {
-            
             alert('An error occurred while processing your request.');
         });
     };
@@ -247,7 +249,7 @@ const VehicleEdit = () => {
                 required
             />
             </div>
-            <button type="submit" className="btn-submit">Edit Vehicle</button>
+            <button type="submit" className="btn-submit">Update Vehicle</button>
         </form>
         </div>
     </div>

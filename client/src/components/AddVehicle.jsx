@@ -2,6 +2,7 @@ import React from 'react'
 import { useState } from 'react';
 import '../css/AddVehicle.css';
 import axios from 'axios';
+import {useNavigate} from 'react-router-dom'
 const AddVehicle = () => {
   // Vehicle
   const [licensePlateNumber, setLicensePlateNumber] = useState('');
@@ -18,6 +19,7 @@ const AddVehicle = () => {
 
   // Vehicle At Branch Fields
   const [address, setAddress] = useState('');
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -55,6 +57,7 @@ const AddVehicle = () => {
       })
       .then((response) => {
         if (response.data.createdSpecification) {
+
           console.log('Specification added successfully:', response.data);
   
           // adding the branch
@@ -70,6 +73,10 @@ const AddVehicle = () => {
         if (response.data.createdBranch) {
           console.log('Branch added successfully:', response.data);
           alert('Vehicle, Specification, and Branch added successfully!');
+
+        
+          navigate('/vehicle')
+
           // setLicensePlateNumber('');
           // setAvailability(true);
           // setNumOfVehicles(1);
