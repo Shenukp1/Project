@@ -1,10 +1,13 @@
 import React from 'react'
 import { useState } from 'react';
-//import '../css/AddReservation.css';
+import '../css/AddReservation.css';
 import axios from 'axios';
 import {useNavigate} from 'react-router-dom'
 
 const AddReservation = () => {
+
+    const navigate = useNavigate();
+
 
     // add all the usestates
     const [reservationNumber, setReservationNumber] = useState('');
@@ -34,6 +37,18 @@ const AddReservation = () => {
             licensePlateNumber,
         }
         console.log('Reservation Data:', reservationData);
+
+        axios.post('http://localhost:3001/reservation/addReservation', reservationData)
+        .then((res)=>{
+            console.log("Hello: "+res)
+            if(res.data.addedReservation){
+                console.log('Added successfully:', res.data);
+                navigate('/customerDashboard')
+            }else{
+                console.log('Not Added successfully:');
+            } 
+        })
+        .catch(err => console.log(err))
     };
 
     

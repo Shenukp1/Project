@@ -1,0 +1,113 @@
+/* Add Reservation Page Styling */
+.add-reservation-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #f9f9f9;
+  }
+  
+  .add-reservation-container {
+    background: #fff;
+    border-radius: 5px;
+    padding: 2rem;
+    width: 400px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .add-reservation-container h2 {
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+  }
+  
+  .add-reservation-container h3 {
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 0.5rem;
+  }
+  
+  /* Form Group Styling */
+  .form-group {
+    margin-bottom: 1rem;
+    text-align: left;
+  }
+  
+  .form-group label {
+    display: block;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    color: #333;
+  }
+  
+  .form-group input,
+  .form-group select {
+    display: block;
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 0.9rem;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box;
+    line-height: 1.2rem;
+    height: 2.2rem;
+  }
+  
+  .form-group input:focus,
+  .form-group select:focus {
+    border-color: #555;
+    outline: none;
+    box-shadow: 0 0 5px rgba(85, 85, 85, 0.3);
+  }
+  
+  /* Submit Button Styling */
+  .btn-submit {
+    margin-top: 1.5rem;
+    width: 100%;
+    padding: 0.7rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fff;
+    background: #333;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-submit:hover {
+    background: #555;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 480px) {
+    .add-reservation-container {
+      width: 90%;
+      padding: 1.5rem;
+    }
+  
+    .add-reservation-container h2 {
+      font-size: 1.3rem;
+    }
+  
+    .add-reservation-container h3 {
+      font-size: 1rem;
+    }
+  
+    .form-group input,
+    .form-group select {
+      height: 2rem;
+      font-size: 0.8rem;
+    }
+  
+    .btn-submit {
+      padding: 0.6rem;
+      font-size: 0.9rem;
+    }
+  }
